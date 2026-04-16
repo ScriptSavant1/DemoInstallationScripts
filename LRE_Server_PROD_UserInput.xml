@@ -1,0 +1,44 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LW_CRYPTO_INIT_STRING>REPLACE_WITH_PROD_CRYPTO_KEY</LW_CRYPTO_INIT_STRING>
+    <IIS_WEB_SITE_NAME>loadrunner.banksvcs.net</IIS_WEB_SITE_NAME>
+    <DomainName>RBSRES01</DomainName>
+    <SystemUserName>Service-LRESITEPROD</SystemUserName>
+    <SystemUserPwd>REPLACE_WITH_PROD_SERVICE_USER_PWD</SystemUserPwd>
+    <UseDefaultUserSetting>false</UseDefaultUserSetting>
+    <RecoveryQuestion/>
+    <RecoveryAnswer/>
+    <AdminUsername>lre_admin</AdminUsername>
+    <AdminPassword>REPLACE_WITH_PROD_ADMIN_PWD</AdminPassword>
+    <FileSystemRoot>\\rbsres01\grpareas\LRE\LREprod\LRE20251</FileSystemRoot>
+    <DbType>MS-SQL (SQL Auth.)</DbType>
+    <LabDbName>lre_default_lab_db_prod</LabDbName>
+    <AdminDbName>lre_siteadmin_db_prod</AdminDbName>
+    <SiteDbName>lre_site_management_db_prod</SiteDbName>
+    <DbAdminUser>LREADMIN</DbAdminUser>
+    <DbAdminPassword>REPLACE_WITH_PROD_DB_ADMIN_PWD</DbAdminPassword>
+    <DbUsername>LREUSER</DbUsername>
+    <DbPassword>REPLACE_WITH_PROD_DB_USER_PWD</DbPassword>
+    <DbServerHost>REPLACE_WITH_PROD_DB_HOST</DbServerHost>
+    <DbServerPort>1433</DbServerPort>
+    <DataSource/>
+    <OracleTableSpace/>
+    <OracleTempTableSpace/>
+    <MailAddress>Service-LREMTE@mde.rbs.co.uk</MailAddress>
+    <MailSmtp>mlaua7336.server.rbsgrp.mde</MailSmtp>
+    <MailPort>25</MailPort>
+    <MailEncryption>None</MailEncryption>
+    <MailAuthentication>True</MailAuthentication>
+    <MailUserName>Service-LREMTE</MailUserName>
+    <MailUserPassword>REPLACE_WITH_PROD_MAIL_PWD</MailUserPassword>
+    <ConfigureMail>True</ConfigureMail>
+    <IisSecureConfiguration>True</IisSecureConfiguration>
+    <ImportCertificate>False</ImportCertificate>
+    <CertificateName>CN={{HOSTNAME}}.banksvcs.net, OU=Devices, OU=Proving G1 PKI Service, O=The Royal Bank of Scotland Group, C=gb</CertificateName>
+    <CertificateFilePath/>
+    <CertificatePassword/>
+    <CertificateStore>Personal</CertificateStore>
+    <IisSecurePort>12001</IisSecurePort>
+    <IisSecureHostName>{{HOSTNAME}}.banksvcs.net</IisSecureHostName>
+  </PropertyGroup>
+</Project>

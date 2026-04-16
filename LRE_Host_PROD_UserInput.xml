@@ -1,0 +1,6 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LW_CRYPTO_INIT_STRING>REPLACE_WITH_PROD_CRYPTO_KEY</LW_CRYPTO_INIT_STRING>
+    <PublicKey>{{PUBLIC_KEY}}</PublicKey>
+  </PropertyGroup>
+</Project>
