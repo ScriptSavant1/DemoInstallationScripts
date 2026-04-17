@@ -519,7 +519,7 @@ $ts = Get-Date -Format 'yyyyMMdd_HHmmss'
 # --- 7.1 web.config swap ---
 Write-Log "[7.1] Configure TLS/SSL - Web.config swap ..." -Level INFO
 $webConfig    = Join-Path $WebConfigDir "web.config"
-$webConfigSsl = Join-Path $HttpsConfigDir "web.config-for-ssl"
+$webConfigSsl = Join-Path $HttpsConfigDir "web.config-for_ssl"
 
 if (Test-Path $webConfig) {
     $webConfigBak = "${webConfig}.bak_${ts}"
@@ -527,7 +527,7 @@ if (Test-Path $webConfig) {
     Write-Log "[7.1] Backed up `"web.config`" to `"$webConfigBak`"" -Level INFO
     if (Test-Path $webConfigSsl) {
         Copy-Item -Path $webConfigSsl -Destination $webConfig -Force
-        Write-Log "[7.1] Copied `"web.config-for-ssl`" from `"$HttpsConfigDir`" to `"$webConfig`"" -Level INFO
+        Write-Log "[7.1] Copied `"web.config-for_ssl`" from `"$HttpsConfigDir`" to `"$webConfig`"" -Level INFO
         Write-Log "[7.1] SUCCESS: web.config replaced with SSL version." -Level SUCCESS
     } else {
         Write-Log "[7.1] web.config-for-ssl not found at: $webConfigSsl - manual edit needed." -Level WARN
@@ -545,8 +545,9 @@ if (Test-Path $PcsConfig) {
     Write-Log "[7.2] Backed up `"PCS.config`" to `"$pcsConfigBak`"" -Level INFO
 
     $pcsContent = Get-Content $PcsConfig -Raw -Encoding UTF8
-    $internalFqdn = (hostname) + "." + ([System.Net.NetworkInformation.IPGlobalProperties]::GetIPGlobalProperties().DomainName)
-    $newInternalUrl = "https://${internalFqdn}:12001"
+    $hn = (hostname).ToLower()
+    $lreDomain = if ($Environment -eq "DEV") { "webdev.banksvcs.net" } else { "web.banksvcs.net" }
+    $newInternalUrl = "https://${hn}.${lreDomain}:12001"
 
     if ($pcsContent -match 'internalUrl\s*=\s*"([^"]*)"') {
         $oldUrl = $Matches[1]
